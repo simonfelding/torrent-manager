@@ -32,3 +32,5 @@ for torrent in torrents:
         if torrent.status in ["seeding", "seed pending"]:
             client.stop_torrent(torrent.info_hash)
             logging.info(f"Stopped torrent {torrent.name}")
+
+logging.info("Done")
