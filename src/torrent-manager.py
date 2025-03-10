@@ -1,6 +1,8 @@
 from transmission_rpc import Client
 from os import getenv
-import logging
+import logging, sys
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 client = Client(host=getenv("transmission_host"))
 torrents = client.get_torrents(arguments=["trackers", "name", "status"])
