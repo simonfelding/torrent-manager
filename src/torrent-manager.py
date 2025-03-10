@@ -29,4 +29,6 @@ for torrent in torrents:
             logging.warning(f"there is more than one tracker for special torrent {torrent.name}: {trackers}")
     if not special:
         client.change_torrent(torrent.info_hash, seed_ratio_limit=0.01)
-        if torrent.status in ["seeding", "seed pending"]: client.stop_torrent(torrent.info_hash)
+        if torrent.status in ["seeding", "seed pending"]:
+            client.stop_torrent(torrent.info_hash)
+            logging.info(f"Stopped torrent {torrent.name}")
